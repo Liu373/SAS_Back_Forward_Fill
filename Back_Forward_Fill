@@ -1,0 +1,26 @@
+
+
+Data want_2;
+  do _n_ = 1 by 1 until (last.id);
+    set have;
+    by id;
+    if missing(fisrt_k) and not missing(k) then
+      first_k = k;
+    end;
+
+  prev_k = first_k
+
+  do _n_ = 1 by 1 until (last.id);
+    set have;
+    by id;
+    new_k = k;
+    if missing(k) then
+      new_k = prev_k;
+
+    prev_k = new_k;
+    output;
+  end;
+Run;
+
+
+
