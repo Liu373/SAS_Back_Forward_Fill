@@ -23,4 +23,20 @@ Data want_2;
 Run;
 
 
+/******* Another way in the multiple SET example, to derive min, max and sum for the same dataset ****************************/
+DATA newdata ;
+  RETAIN minval maxval sumval ;
+  IF ( _N_ eq 1 ) THEN DO UNTIL (lastrec) ;
+    SET dsname_1 (keep = value) end = lastrec;
+    minval = min ( minval, value ) ;
+    maxval = max ( maxval, value ) ;
+    sumval = sum ( sumval, value ) ;
+  END ;
+
+  SET dsname_1 ;
+  ---------------------
+RUN ;
+
+
+
 
