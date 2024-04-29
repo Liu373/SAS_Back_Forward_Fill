@@ -8,7 +8,7 @@ Data want_2;
       first_k = k;
     end;
 
-  prev_k = first_k
+  prev_k = first_k;
 
   do _n_ = 1 by 1 until (last.id);
     set have;
